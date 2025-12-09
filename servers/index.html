@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="you" /><link rel="canonical" href="https://realtimecomputinglab.github.io/servers/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Server Management and Administration - Real Time Computing Lab Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Server Management and Administration";
+        var mkdocs_page_input_path = "servers.md";
+        var mkdocs_page_url = "/servers/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Real Time Computing Lab Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../server.md">Servers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../equipment/">Equipment</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cloudcredits/">Credits</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Real Time Computing Lab Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Server Management and Administration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="server-management-and-administration">Server Management and Administration</h1>
+<h2 id="server-hostname-list">Server hostname list</h2>
+<ul>
+<li>neuer.eecs.umich.edu</li>
+<li>klose.eecs.umich.edu</li>
+<li>muller.eecs.umich.edu</li>
+<li>rtcl.eecs.umich.edu</li>
+<li>kabru.eecs.umich.edu</li>
+<li>duke.eecs.umich.edu</li>
+<li>diego.eecs.umich.edu</li>
+<li>kroos.eecs.umich.edu</li>
+<li>ibra.eecs.umich.edu</li>
+<li>lahm.eecs.umich.edu</li>
+<li>leo.eecs.umich.edu</li>
+<li>barca.eecs.umich.edu</li>
+<li>messi.eecs.umich.edu</li>
+<li>ronaldo.eecs.umich.edu</li>
+<li>hamm.eecs.umich.edu</li>
+</ul>
+<h2 id="adding-new-users">Adding New Users</h2>
+<ol>
+<li><code>sudo adduser {user}</code></li>
+<li><code>sudo usermod -p '*' {user}</code></li>
+<li><code>sudo chmod 755 /home/{user}/</code></li>
+<li><code>sudo su {user}</code></li>
+<li><code>cd /home/{user}/</code></li>
+<li><code>ssh-keygen -t rsa -b 4096</code> or <code>ssh-keygen -t ecdsa -b 521</code></li>
+<li><code>cd .ssh/</code></li>
+<li><code>nano authorized_keys</code></li>
+<li><code>exit</code></li>
+<li><code>cd /mnt/sda</code> or <code>cd /export/sdb1/brick</code> or <code>cd /data</code> or <code>cd /data1</code> or etc.</li>
+<li><code>sudo mkdir {user}</code></li>
+<li><code>sudo chown {user} {user}/</code></li>
+<li><code>sudo chown {user}: {user}/</code></li>
+<li>Optionally: <code>sudo usermod -aG sudo {user}</code></li>
+</ol>
+<h3 id="new-user-onboarding">New User Onboarding</h3>
+<p>You should be able to access ronaldo/messi.eecs.umich.edu now via ssh on the school wifi or using the school’s Cisco vpn (with UM-Only traffic).</p>
+<p>SSH via your umich username and password (server uses Kerberos). Command is ssh UNIQNAME@ronaldo.eecs.umich.edu and password is your UMich password. If you'd like to use public/private key instead, you can do an ssh-keygen and write to ~/.ssh/authorized_keys.</p>
+<p>Please note that there are others sharing the server, so always check nvidia-smi and htop for the current utilization and please email users to resolve any GPU/CPU utilization disputes. If you have a long training task that will eat up the VRAM of 4 or more GPUs for more than 2 days, please send an email to shinteam@eecs.umich.edu.</p>
+<p>You also have a folder in /data/UNIQNAME and data1/UNIQNAME. You should use these directories for storing any large datasets or models. These are not RAID protected, and hence you should make backups of your data on your local device or University Dropbox. We will be getting additional storage space in several weeks.</p>
+<p>Please let me know or another student know if you need packages installed/updated or sudo access.</p>
+<p>Best regards,
+Your Name</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
